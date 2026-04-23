@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的作品大本營</title>
+    <style>
+        /* 基礎樣式設定 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 { color: #333; margin-bottom: 30px; }
+
+        /* 網格佈局 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* 項目卡片樣式 */
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Icon 樣式 */
+        .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 我的項目大本營</h1>
+
+    <div class="grid-container">
+
+        <!-- 項目 1: Passage Master -->
+        <a href="https://p2023270126.github.io/Passage-Master/" class="card" target="_blank">
+            <div class="icon">📖</div>
+            <h3>Passage Master</h3>
+            <p>點擊進入文章練習系統</p>
+        </a>
+
+        <!-- 項目 2: Eng Game -->
+        <a href="https://p2023270126.github.io/22_66_Eng_Game/" class="card" target="_blank">
+            <div class="icon">🎮</div>
+            <h3>English Game</h3>
+            <p>挑戰英語互動遊戲</p>
+        </a>
+
+      <!-- 項目 3: Stock Dashboard -->
+        <a href="https://p2023270126.github.io/Passage-Master/" class="card" target="_blank">
+            <div class="icon">📈📈📈</div>
+            <h3>Stock Dashboard</h3>
+            <p>點擊進入系統</p>
+        </a>
+      
+        <!-- 未來可以繼續增加項目... -->
+        <!-- 
+        <a href="網址" class="card">
+            <div class="icon">✨</div>
+            <h3>新項目名稱</h3>
+            <p>項目介紹</p>
+        </a> 
+        -->
+
+    </div>
+
+</body>
+</html>
