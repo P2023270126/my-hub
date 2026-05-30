@@ -6,25 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🏆 Peter 軍火庫 🏆</title>
 
-    <!-- Google Fonts：接近 Duolingo 的圓潤學習感 -->
+    <!-- Google Fonts：圓潤、學習遊戲感 -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --duo-green: #58cc02;
-            --duo-green-dark: #3f8f01;
-            --duo-green-light: #d7ffb8;
-            --duo-blue: #1cb0f6;
-            --duo-yellow: #ffc800;
-            --duo-orange: #ff9600;
-            --duo-purple: #ce82ff;
-            --duo-red: #ff4b4b;
+            --main-blue: #4aa3ff;
+            --main-blue-dark: #2d7dd2;
+            --main-blue-light: #dff1ff;
+            --main-blue-soft: #f4fbff;
+            --sky-blue: #8ed0ff;
 
-            --text-main: #3c3c3c;
-            --text-secondary: #777777;
-            --border-light: #e5e5e5;
-            --background: #ffffff;
-            --soft-background: #f7fdf2;
+            --text-main: #2f3a4a;
+            --text-secondary: #6b7a8c;
+            --border-light: #d9e8f5;
+            --background: #f7fcff;
+            --white: #ffffff;
 
             --card-radius: 24px;
             --button-radius: 16px;
@@ -39,9 +36,9 @@
             min-height: 100vh;
             font-family: 'Nunito', sans-serif;
             background:
-                radial-gradient(circle at top left, #d7ffb8 0, transparent 28%),
-                radial-gradient(circle at top right, #ddf4ff 0, transparent 26%),
-                linear-gradient(180deg, #ffffff 0%, #f7fdf2 100%);
+                radial-gradient(circle at top left, #e8f6ff 0, transparent 30%),
+                radial-gradient(circle at top right, #dff1ff 0, transparent 28%),
+                linear-gradient(180deg, #f9fdff 0%, #f2f9ff 100%);
             color: var(--text-main);
             display: flex;
             flex-direction: column;
@@ -54,9 +51,9 @@
             max-width: 1080px;
         }
 
-        /* Header */
+        /* Hero Section */
         .hero {
-            background: #ffffff;
+            background: var(--white);
             border: 2px solid var(--border-light);
             border-radius: 32px;
             padding: 34px 28px;
@@ -65,15 +62,15 @@
             grid-template-columns: 1.35fr 0.65fr;
             gap: 24px;
             align-items: center;
-            box-shadow: 0 6px 0 #e5e5e5;
+            box-shadow: 0 8px 0 #dceaf6;
         }
 
         .hero-label {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--duo-green-light);
-            color: var(--duo-green-dark);
+            background: var(--main-blue-light);
+            color: var(--main-blue-dark);
             font-weight: 900;
             font-size: 0.95rem;
             padding: 8px 14px;
@@ -94,97 +91,57 @@
             font-size: clamp(1rem, 2.5vw, 1.25rem);
             color: var(--text-secondary);
             line-height: 1.6;
-            margin: 0 0 22px;
+            margin: 0;
             max-width: 620px;
-            font-weight: 700;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .main-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: var(--duo-green);
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: var(--button-radius);
-            padding: 15px 24px;
-            font-weight: 900;
-            font-size: 1rem;
-            box-shadow: 0 5px 0 var(--duo-green-dark);
-            border: none;
-            transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-        }
-
-        .main-button:hover {
-            filter: brightness(1.04);
-            transform: translateY(-1px);
-        }
-
-        .main-button:active {
-            transform: translateY(4px);
-            box-shadow: 0 1px 0 var(--duo-green-dark);
-        }
-
-        .secondary-pill {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            color: var(--duo-blue);
-            border: 2px solid var(--border-light);
-            border-radius: var(--button-radius);
-            padding: 13px 18px;
-            font-weight: 900;
-            font-size: 0.95rem;
+            font-weight: 800;
         }
 
         .hero-mascot {
-            min-height: 210px;
+            min-height: 240px;
             border-radius: 28px;
             background:
-                linear-gradient(145deg, #d7ffb8 0%, #ffffff 58%),
+                linear-gradient(145deg, #dff1ff 0%, #ffffff 60%),
                 #ffffff;
             border: 2px solid var(--border-light);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 -5px 0 rgba(88, 204, 2, 0.15);
+            box-shadow: inset 0 -5px 0 rgba(74, 163, 255, 0.12);
             text-align: center;
             padding: 18px;
+            overflow: hidden;
         }
 
-        .mascot-icon {
-            font-size: clamp(4rem, 10vw, 6.5rem);
-            line-height: 1;
-            margin-bottom: 12px;
-            animation: floatIcon 2.8s ease-in-out infinite;
+        .owl-image {
+            width: 210px;
+            height: 150px;
+            max-width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 24px;
+            margin-bottom: 14px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 6px 0 #d2e4f3, 0 8px 18px rgba(45, 125, 210, 0.12);
+            animation: floatImage 2.8s ease-in-out infinite;
         }
 
         .mascot-text {
             font-weight: 900;
-            color: var(--duo-green-dark);
+            color: var(--main-blue-dark);
             font-size: 1.05rem;
         }
 
-        @keyframes floatIcon {
+        @keyframes floatImage {
             0%, 100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-8px);
+                transform: translateY(-6px);
             }
         }
 
-        /* Section title */
+        /* Section Header */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -208,7 +165,7 @@
 
         .mission-count {
             background: #ffffff;
-            color: var(--duo-green);
+            color: var(--main-blue-dark);
             border: 2px solid var(--border-light);
             border-radius: 999px;
             padding: 9px 15px;
@@ -236,19 +193,19 @@
             min-height: 245px;
             padding: 22px;
             overflow: hidden;
-            box-shadow: 0 6px 0 #e5e5e5;
+            box-shadow: 0 6px 0 #dceaf6;
             transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 11px 0 #d9d9d9;
-            border-color: #cfcfcf;
+            box-shadow: 0 11px 0 #d2e4f3;
+            border-color: #c9dff1;
         }
 
         .card:active {
             transform: translateY(3px);
-            box-shadow: 0 3px 0 #d9d9d9;
+            box-shadow: 0 3px 0 #d2e4f3;
         }
 
         .card-top {
@@ -268,7 +225,7 @@
             justify-content: center;
             font-size: 2.25rem;
             border: 2px solid rgba(255, 255, 255, 0.75);
-            box-shadow: inset 0 -4px 0 rgba(0,0,0,0.08);
+            box-shadow: inset 0 -4px 0 rgba(0,0,0,0.06);
         }
 
         .tag {
@@ -276,7 +233,7 @@
             font-weight: 900;
             padding: 7px 10px;
             border-radius: 999px;
-            background: #f7f7f7;
+            background: #eef6fd;
             color: var(--text-secondary);
             white-space: nowrap;
         }
@@ -301,12 +258,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--duo-green);
+            background: var(--main-blue);
             color: #ffffff;
             border-radius: 14px;
             padding: 12px 14px;
             font-weight: 900;
-            box-shadow: 0 4px 0 var(--duo-green-dark);
+            box-shadow: 0 4px 0 var(--main-blue-dark);
             transition: transform 0.12s ease, box-shadow 0.12s ease;
         }
 
@@ -316,50 +273,49 @@
 
         .card:active .card-button {
             transform: translateY(3px);
-            box-shadow: 0 1px 0 var(--duo-green-dark);
+            box-shadow: 0 1px 0 var(--main-blue-dark);
         }
 
         .card.reading .icon-bubble {
-            background: #d7ffb8;
+            background: #dff1ff;
         }
 
         .card.english .icon-bubble {
-            background: #ddf4ff;
+            background: #e8f6ff;
         }
 
         .card.stock .icon-bubble {
-            background: #fff3c4;
+            background: #edf7ff;
         }
 
         .card.counting .icon-bubble {
-            background: #f3ddff;
+            background: #e4f3ff;
         }
 
         .card.math .icon-bubble {
-            background: #ffe2e2;
+            background: #eef7ff;
         }
 
         .card.reading {
-            border-top: 7px solid var(--duo-green);
+            border-top: 7px solid #69b9ff;
         }
 
         .card.english {
-            border-top: 7px solid var(--duo-blue);
+            border-top: 7px solid #47a7ff;
         }
 
         .card.stock {
-            border-top: 7px solid var(--duo-yellow);
+            border-top: 7px solid #80c7ff;
         }
 
         .card.counting {
-            border-top: 7px solid var(--duo-purple);
+            border-top: 7px solid #9bd6ff;
         }
 
         .card.math {
-            border-top: 7px solid var(--duo-red);
+            border-top: 7px solid #5fafff;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             margin-top: 28px;
@@ -369,7 +325,7 @@
         }
 
         .footer span {
-            color: var(--duo-green);
+            color: var(--main-blue-dark);
             font-weight: 900;
         }
 
@@ -384,7 +340,12 @@
             }
 
             .hero-mascot {
-                min-height: 180px;
+                min-height: 220px;
+            }
+
+            .owl-image {
+                width: 240px;
+                height: 160px;
             }
         }
 
@@ -400,14 +361,14 @@
                 margin-bottom: 22px;
             }
 
-            .hero-actions {
-                flex-direction: column;
-                align-items: stretch;
+            .hero-mascot {
+                min-height: 210px;
             }
 
-            .main-button,
-            .secondary-pill {
-                width: 100%;
+            .owl-image {
+                width: 230px;
+                height: 150px;
+                border-radius: 22px;
             }
 
             .section-header {
@@ -449,22 +410,12 @@
                 <div class="hero-label">🚀 Learning Mission Control</div>
                 <h1>🏆 Peter 軍火庫 🏆</h1>
                 <p class="hero-subtitle">
-                    選擇一個學習任務，開始挑戰閱讀、英文、數學與其他小工具。
-                    今日都要升級自己！
+                    選擇一個學習任務，開始挑戰閱讀、英文、數學與其他小工具。今日都要升級自己！
                 </p>
-
-                <div class="hero-actions">
-                    <a href="https://p2023270126.github.io/22_66_Eng_Game/" class="main-button" target="_blank">
-                        🎮 Start First Mission
-                    </a>
-                    <div class="secondary-pill">
-                        ⭐ 5 個任務已準備好
-                    </div>
-                </div>
             </div>
 
             <div class="hero-mascot">
-                <img src="family-owl.jpeg" alt="Mission Mascot" class="owl-image">
+                <img src="family-owl.jpeg" alt="Peter Mission Mascot" class="owl-image">
                 <div class="mascot-text">Ready for today’s mission?</div>
             </div>
         </section>
