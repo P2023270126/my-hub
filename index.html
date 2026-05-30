@@ -4,118 +4,545 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏆🏆 Peter 軍火庫 🏆🏆</title>
+    <title>🏆 Peter 軍火庫 🏆</title>
+
+    <!-- Google Fonts：接近 Duolingo 的圓潤學習感 -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        /* 基礎樣式設定 */
+        :root {
+            --duo-green: #58cc02;
+            --duo-green-dark: #3f8f01;
+            --duo-green-light: #d7ffb8;
+            --duo-blue: #1cb0f6;
+            --duo-yellow: #ffc800;
+            --duo-orange: #ff9600;
+            --duo-purple: #ce82ff;
+            --duo-red: #ff4b4b;
+
+            --text-main: #3c3c3c;
+            --text-secondary: #777777;
+            --border-light: #e5e5e5;
+            --background: #ffffff;
+            --soft-background: #f7fdf2;
+
+            --card-radius: 24px;
+            --button-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
             margin: 0;
+            min-height: 100vh;
+            font-family: 'Nunito', sans-serif;
+            background:
+                radial-gradient(circle at top left, #d7ffb8 0, transparent 28%),
+                radial-gradient(circle at top right, #ddf4ff 0, transparent 26%),
+                linear-gradient(180deg, #ffffff 0%, #f7fdf2 100%);
+            color: var(--text-main);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 28px 18px 40px;
         }
 
-        h1 { color: #333; margin-bottom: 30px; }
+        .page-wrapper {
+            width: 100%;
+            max-width: 1080px;
+        }
 
-        /* 網格佈局 */
+        /* Header */
+        .hero {
+            background: #ffffff;
+            border: 2px solid var(--border-light);
+            border-radius: 32px;
+            padding: 34px 28px;
+            margin-bottom: 28px;
+            display: grid;
+            grid-template-columns: 1.35fr 0.65fr;
+            gap: 24px;
+            align-items: center;
+            box-shadow: 0 6px 0 #e5e5e5;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--duo-green-light);
+            color: var(--duo-green-dark);
+            font-weight: 900;
+            font-size: 0.95rem;
+            padding: 8px 14px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            font-size: clamp(2.1rem, 5vw, 4rem);
+            line-height: 1.05;
+            margin: 0 0 14px;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0 0 22px;
+            max-width: 620px;
+            font-weight: 700;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .main-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--duo-green);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: var(--button-radius);
+            padding: 15px 24px;
+            font-weight: 900;
+            font-size: 1rem;
+            box-shadow: 0 5px 0 var(--duo-green-dark);
+            border: none;
+            transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+        }
+
+        .main-button:hover {
+            filter: brightness(1.04);
+            transform: translateY(-1px);
+        }
+
+        .main-button:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 var(--duo-green-dark);
+        }
+
+        .secondary-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: var(--duo-blue);
+            border: 2px solid var(--border-light);
+            border-radius: var(--button-radius);
+            padding: 13px 18px;
+            font-weight: 900;
+            font-size: 0.95rem;
+        }
+
+        .hero-mascot {
+            min-height: 210px;
+            border-radius: 28px;
+            background:
+                linear-gradient(145deg, #d7ffb8 0%, #ffffff 58%),
+                #ffffff;
+            border: 2px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 -5px 0 rgba(88, 204, 2, 0.15);
+            text-align: center;
+            padding: 18px;
+        }
+
+        .mascot-icon {
+            font-size: clamp(4rem, 10vw, 6.5rem);
+            line-height: 1;
+            margin-bottom: 12px;
+            animation: floatIcon 2.8s ease-in-out infinite;
+        }
+
+        .mascot-text {
+            font-weight: 900;
+            color: var(--duo-green-dark);
+            font-size: 1.05rem;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Section title */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 16px;
+            margin: 26px 4px 18px;
+        }
+
+        .section-header h2 {
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            margin: 0;
+            font-size: clamp(1.55rem, 4vw, 2.2rem);
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            margin: 5px 0 0;
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+
+        .mission-count {
+            background: #ffffff;
+            color: var(--duo-green);
+            border: 2px solid var(--border-light);
+            border-radius: 999px;
+            padding: 9px 15px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        /* Cards */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
             width: 100%;
-            max-width: 1000px;
         }
 
-        /* 項目卡片樣式 */
         .card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            background: #ffffff;
+            border: 2px solid var(--border-light);
+            border-radius: var(--card-radius);
             text-decoration: none;
-            color: #333;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-main);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 30px;
-            text-align: center;
+            min-height: 245px;
+            padding: 22px;
+            overflow: hidden;
+            box-shadow: 0 6px 0 #e5e5e5;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 11px 0 #d9d9d9;
+            border-color: #cfcfcf;
         }
 
-        /* Icon 樣式 */
-        .icon {
-            font-size: 50px;
-            margin-bottom: 15px;
+        .card:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #d9d9d9;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .icon-bubble {
+            width: 68px;
+            height: 68px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.25rem;
+            border: 2px solid rgba(255, 255, 255, 0.75);
+            box-shadow: inset 0 -4px 0 rgba(0,0,0,0.08);
+        }
+
+        .tag {
+            font-size: 0.78rem;
+            font-weight: 900;
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: #f7f7f7;
+            color: var(--text-secondary);
+            white-space: nowrap;
         }
 
         .card h3 {
-            margin: 10px 0;
-            font-size: 1.2rem;
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            margin: 0 0 8px;
+            font-size: 1.35rem;
+            line-height: 1.15;
         }
 
         .card p {
-            font-size: 0.9rem;
-            color: #666;
+            margin: 0;
+            font-size: 0.98rem;
+            line-height: 1.45;
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+
+        .card-button {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--duo-green);
+            color: #ffffff;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-weight: 900;
+            box-shadow: 0 4px 0 var(--duo-green-dark);
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .card:hover .card-button {
+            transform: translateY(-1px);
+        }
+
+        .card:active .card-button {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 var(--duo-green-dark);
+        }
+
+        .card.reading .icon-bubble {
+            background: #d7ffb8;
+        }
+
+        .card.english .icon-bubble {
+            background: #ddf4ff;
+        }
+
+        .card.stock .icon-bubble {
+            background: #fff3c4;
+        }
+
+        .card.counting .icon-bubble {
+            background: #f3ddff;
+        }
+
+        .card.math .icon-bubble {
+            background: #ffe2e2;
+        }
+
+        .card.reading {
+            border-top: 7px solid var(--duo-green);
+        }
+
+        .card.english {
+            border-top: 7px solid var(--duo-blue);
+        }
+
+        .card.stock {
+            border-top: 7px solid var(--duo-yellow);
+        }
+
+        .card.counting {
+            border-top: 7px solid var(--duo-purple);
+        }
+
+        .card.math {
+            border-top: 7px solid var(--duo-red);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 28px;
+            color: var(--text-secondary);
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .footer span {
+            color: var(--duo-green);
+            font-weight: 900;
+        }
+
+        /* Tablet */
+        @media (max-width: 980px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-mascot {
+                min-height: 180px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            body {
+                padding: 18px 12px 28px;
+            }
+
+            .hero {
+                padding: 24px 18px;
+                border-radius: 26px;
+                margin-bottom: 22px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .main-button,
+            .secondary-pill {
+                width: 100%;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                flex-direction: column;
+                margin-left: 2px;
+                margin-right: 2px;
+            }
+
+            .mission-count {
+                align-self: flex-start;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .card {
+                min-height: 220px;
+                padding: 20px;
+            }
+
+            .icon-bubble {
+                width: 62px;
+                height: 62px;
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
+    <main class="page-wrapper">
 
-    <h1>🏆🏆 Peter 軍火庫 🏆🏆</h1>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div>
+                <div class="hero-label">🚀 Learning Mission Control</div>
+                <h1>🏆 Peter 軍火庫 🏆</h1>
+                <p class="hero-subtitle">
+                    選擇一個學習任務，開始挑戰閱讀、英文、數學與其他小工具。
+                    今日都要升級自己！
+                </p>
 
-    <div class="grid-container">
+                <div class="hero-actions">
+                    <a href="https://p2023270126.github.io/22_66_Eng_Game/" class="main-button" target="_blank">
+                        🎮 Start First Mission
+                    </a>
+                    <div class="secondary-pill">
+                        ⭐ 5 個任務已準備好
+                    </div>
+                </div>
+            </div>
 
-        <!-- 項目 1: Passage Master -->
-        <a href="https://p2023270126.github.io/Passage-Master/" class="card" target="_blank">
-            <div class="icon">📚📚📚</div>
-            <h3>Passage Master</h3>
-            <p>點擊進入文章練習系統</p>
-        </a>
+            <div class="hero-mascot">
+                <div class="mascot-icon">🦉</div>
+                <div class="mascot-text">Ready for today’s mission?</div>
+            </div>
+        </section>
 
-        <!-- 項目 2: Eng Game -->
-        <a href="https://p2023270126.github.io/22_66_Eng_Game/" class="card" target="_blank">
-            <div class="icon">🎮🎮🎮</div>
-            <h3>English Game</h3>
-            <p>挑戰英語互動遊戲</p>
-        </a>
+        <!-- Mission Cards -->
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2>Choose Your Mission</h2>
+                    <p>每張卡片都是一個學習入口</p>
+                </div>
+                <div class="mission-count">5 Missions</div>
+            </div>
 
-      <!-- 項目 3: Stock Dashboard -->
-        <a href="https://p2023270126.github.io/Stock/" class="card" target="_blank">
-            <div class="icon">📈📈📈</div>
-            <h3>Stock Dashboard</h3>
-            <p>點擊進入股市情緒</p>
-        </a>
+            <div class="grid-container">
 
-        <!-- 項目 4: Counting Game -->
-        <a href="https://p2023270126.github.io/counting-game/" class="card" target="_blank">
-            <div class="icon">🔢🔢🔢</div>
-            <h3>Fun Counting</h3>
-            <p>齊來學數學 1–20</p>
-        </a>
+                <!-- 項目 1: Passage Master -->
+                <a href="https://p2023270126.github.io/Passage-Master/" class="card reading" target="_blank">
+                    <div class="card-top">
+                        <div class="icon-bubble">📚</div>
+                        <div class="tag">Reading</div>
+                    </div>
+                    <h3>Passage Master</h3>
+                    <p>文章練習系統，訓練閱讀理解、句子掌握與英文語感。</p>
+                    <div class="card-button">Start Reading</div>
+                </a>
 
-        <!-- 項目 5: Math Grid -->
-        <a href="https://p2023270126.github.io/math-grid/" class="card" target="_blank">
-            <div class="icon">➕➖✖️➗</div>
-            <h3>Math Grid</h3>
-            <p>齊來動腦筋</p>
-        </a>
-        
-        <!-- 未來可以繼續增加項目... -->
-        <!-- 
-        <a href="網址" class="card">
-            <div class="icon">✨</div>
-            <h3>新項目名稱</h3>
-            <p>項目介紹</p>
-        </a> 
-        -->
+                <!-- 項目 2: English Game -->
+                <a href="https://p2023270126.github.io/22_66_Eng_Game/" class="card english" target="_blank">
+                    <div class="card-top">
+                        <div class="icon-bubble">🎮</div>
+                        <div class="tag">English</div>
+                    </div>
+                    <h3>English Game</h3>
+                    <p>英語互動遊戲，挑戰生字、聽音、拼字與短文填充。</p>
+                    <div class="card-button">Play Now</div>
+                </a>
 
-    </div>
+                <!-- 項目 3: Stock Dashboard -->
+                <a href="https://p2023270126.github.io/Stock/" class="card stock" target="_blank">
+                    <div class="card-top">
+                        <div class="icon-bubble">📈</div>
+                        <div class="tag">Market</div>
+                    </div>
+                    <h3>Stock Dashboard</h3>
+                    <p>股市情緒頁面，快速查看市場狀態與投資氣氛。</p>
+                    <div class="card-button">Open Radar</div>
+                </a>
 
+                <!-- 項目 4: Counting Game -->
+                <a href="https://p2023270126.github.io/counting-game/" class="card counting" target="_blank">
+                    <div class="card-top">
+                        <div class="icon-bubble">🔢</div>
+                        <div class="tag">Counting</div>
+                    </div>
+                    <h3>Fun Counting</h3>
+                    <p>一起學數字 1–20，用輕鬆方式建立數學基礎。</p>
+                    <div class="card-button">Count Now</div>
+                </a>
+
+                <!-- 項目 5: Math Grid -->
+                <a href="https://p2023270126.github.io/math-grid/" class="card math" target="_blank">
+                    <div class="card-top">
+                        <div class="icon-bubble">➕</div>
+                        <div class="tag">Math</div>
+                    </div>
+                    <h3>Math Grid</h3>
+                    <p>數字格仔挑戰，訓練加減乘除與快速反應。</p>
+                    <div class="card-button">Start Challenge</div>
+                </a>
+
+            </div>
+        </section>
+
+        <footer class="footer">
+            Built by <span>Peter</span> · Keep learning, keep leveling up 🚀
+        </footer>
+
+    </main>
 </body>
 </html>
